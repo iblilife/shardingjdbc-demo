@@ -26,11 +26,13 @@ public class DemoApplication implements ApplicationRunner {
 		ObjectMapper jsonMapper = new ObjectMapper();
 
 		// 测试数据表分片
+		// 数据正常
 		List<Map<String, Object>> otherTableDataList = otherTableMapper.selectByOtherTableData();
 		System.err.println("otherTableDataList:");
 		System.err.println(jsonMapper.writeValueAsString(otherTableDataList));
 
 		// 测试不需要分片
+		// 数据异常
 		// 返回数据错误，数据返回列错误
 		List<Map<String, Object>> joinTableList = otherTableMapper.selectByTableAJoinTableBData();
 		System.err.println("joinTableList:");
