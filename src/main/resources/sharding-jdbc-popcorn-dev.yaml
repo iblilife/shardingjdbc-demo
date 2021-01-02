@@ -1,0 +1,17 @@
+props:
+  sql-show: true
+  sql-simple: false
+rules:
+  - !SHARDING
+    tables:
+      other_table:
+        actualDataNodes: logic_db.other_table_$->{0..1}
+        tableStrategy:
+          standard:
+            shardingColumn: test_column
+            shardingAlgorithmName: other_table__test_column
+    shardingAlgorithms:
+      other_table__test_column:
+        type: INLINE
+        props:
+          algorithm-expression: other_table_$->{test_column % 2}

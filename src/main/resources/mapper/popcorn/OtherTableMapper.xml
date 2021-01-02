@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.shardingjdbc.demo.mapper.popcorn.OtherTableMapper">
+
+  <select id="selectByOtherTableData" resultType="java.util.Map">
+    SELECT * FROM other_table WHERE test_column = 2
+  </select>
+
+  <select id="selectByTableAJoinTableBData" resultType="java.util.Map">
+    SELECT a.*, b.id FROM table_a a LEFT JOIN table_b b ON (a.id = b.id)
+  </select>
+</mapper>
